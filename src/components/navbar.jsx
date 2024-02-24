@@ -19,7 +19,7 @@ function Navbar(props){         //props => {loginCheck:functionInParent_App , is
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav col-12 text-center">
                         <Link className={`nav-link col-lg-6 ${props.isLoggedIn? "active" : "" }`} aria-current="page">ToDo</Link> {/*to property is removed because no need to route to todo without login*/}
-                        <Link to='' className={`nav-link col-lg-6 ${props.isLoggedIn? "" : "active" }`} onClick={logOut}>{props.isLoggedIn? "Log Out": "Log In"}</Link>
+                        <Link to='/todoApp' className={`nav-link col-lg-6 ${props.isLoggedIn? "" : "active" }`} onClick={logOut}>{props.isLoggedIn? "Log Out": "Log In"}</Link>
                     </div>
                     </div>
                 </div>
