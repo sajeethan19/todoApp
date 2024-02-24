@@ -4,7 +4,7 @@ import axios from "axios";
 import Items from "./items";
 
 export default function ToDo () {
-    const [todos, setTodos] = useState(null);
+    const [todos, setTodos] = useState();
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/todos")
         .then((result) => {setTodos(result.data);});
@@ -16,8 +16,13 @@ export default function ToDo () {
   return (
     <div>
       {todos? 
-      <Items todos={todos}/> : 
-        null
+      <Items todos={todos}/> 
+      : 
+      <div>
+        <div className="spinner-grow text-primary position-absolute top-50 start-50" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>
       }
     </div>
   );
