@@ -2,7 +2,7 @@
   "name": "todo",
   "private": true,
   "version": "0.0.0",
-  "homepage":"https://sajeethan19.github.io/todoApp",
+  "homepage": "https://sajeethan19.github.io/todoApp",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
