@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Navbar isLoggedIn={isLoggedIn} loginCheck={loginCheck}/>
         <Routes>
-          <Route path='/' element={<LogIn loginCheck={loginCheck}/>}/>
+          <Route path='/todoApp' element={<LogIn loginCheck={loginCheck}/>}/>
           <Route path='/todo' element={<ToDo/>}/>
         </Routes>
       </BrowserRouter>
