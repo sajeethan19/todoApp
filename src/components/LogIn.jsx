@@ -13,7 +13,7 @@ export default function LogIn({loginCheck}) {
 
     function handleSubmit(){
         if(name === "admin" && password === "admin"){
-            navigate("/todo")
+            navigate("/todoApp/todo")
             loginCheck()
             setAlertClass("d-none")
         } else if (name === ""){
