@@ -1,10 +1,10 @@
-import axios from 'axios';
-import React from 'react'
-import { useState, useEffect } from 'react';
-import ReactPaginate from 'react-paginate';
+import axios from "axios";
+import React from "react";
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import PropTypes from "prop-types";
 
-
-export default function Items({todos}) {
+export default function Items ({todos}) {
     const [data, setData] = useState(todos.slice(0,10)); //setup initial data to show and define sliced data
     const [id,setId] = useState(1);
     const [startId,setStartId] = useState(0);
@@ -17,16 +17,16 @@ export default function Items({todos}) {
         const startIndex = selectedPage.selected * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         setData(todos.slice(startIndex, endIndex));
-        setStartId(startIndex)
+        setStartId(startIndex);
     };
 
     const handleModal = (index) => {
-        setId(startId+index+1)
-    }
+        setId(startId+index+1);
+    };
 
     useEffect(() => {
         axios.get(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then((result) => {setMessage(result.data)});
+        .then((result) => {setMessage(result.data);});
     },[id]);
 
   return (
@@ -82,5 +82,9 @@ export default function Items({todos}) {
             </div>
         </div>
     </div>
-  )
+  );
 }
+
+Items.propTypes = {
+    todos:PropTypes.array,
+};

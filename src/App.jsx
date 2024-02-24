@@ -1,14 +1,14 @@
-import './App.css'
-import LogIn from './components/LogIn';
-import ToDo from './components/ToDo';
-import Navbar from "./components/navbar.jsx"
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import "./App.css";
+import LogIn from "./components/LogIn";
+import ToDo from "./components/ToDo";
+import Navbar from "./components/navbar.jsx";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import { useState } from "react";
 
-function App() {
+function App () {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  function loginCheck(){
-    setIsLoggedIn(!isLoggedIn)
+  function loginCheck (){
+    setIsLoggedIn(!isLoggedIn);
   }
 
   
@@ -26,4 +26,4 @@ function App() {
   );
 }
  
-export default App
+export default App;

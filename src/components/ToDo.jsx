@@ -1,13 +1,13 @@
-import React from 'react'
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Items from './items';
+import React from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Items from "./items";
 
-export default function ToDo() {
+export default function ToDo () {
     const [todos, setTodos] = useState(null);
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/todos")
-        .then((result) => {setTodos(result.data)});
+        .then((result) => {setTodos(result.data);});
     },[]);
 
     
@@ -20,5 +20,5 @@ export default function ToDo() {
         null
       }
     </div>
-  )
+  );
 }

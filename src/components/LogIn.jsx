@@ -1,45 +1,46 @@
-import React from 'react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export default function LogIn({loginCheck}) {
+export default function LogIn ({loginCheck}) {
     const [name,setName] = useState();
     const [password,setPassword] = useState();
     const [validName,setValidName] = useState(null);
     const [validPassword,setValidPassword] = useState(null);
-    const [alert,setAlert] = useState("")
-    const [alertClass,setAlertClass] = useState("d-none")
+    const [alert,setAlert] = useState("");
+    const [alertClass,setAlertClass] = useState("d-none");
     const navigate = useNavigate();
 
-    function handleSubmit(){
+    function handleSubmit (){
         if(name === "admin" && password === "admin"){
-            navigate("/todoApp/todo")
-            loginCheck()
-            setAlertClass("d-none")
+            navigate("/todoApp/todo");
+            loginCheck();
+            setAlertClass("d-none");
         } else if (name === ""){
-            setValidName("is-invalid")
-            setAlertClass()
-            setAlert("Username is empty!")
-            setValidPassword("")
+            setValidName("is-invalid");
+            setAlertClass();
+            setAlert("Username is empty!");
+            setValidPassword("");
         } else if (name !== "admin"){
-            setValidName("is-invalid")
-            setAlertClass()
-            setAlert("User is not Registered!")
-            setValidPassword("")
+            setValidName("is-invalid");
+            setAlertClass();
+            setAlert("User is not Registered!");
+            setValidPassword("");
         } else if (password !== "admin"){
-            setValidPassword("is-invalid")
-            setAlertClass()
-            setAlert("Password is Incorrect!")
-            setValidName("")
+            setValidPassword("is-invalid");
+            setAlertClass();
+            setAlert("Password is Incorrect!");
+            setValidName("");
         }
     }
 
-    function handleName(event){
-        setName(event.target.value)
+    function handleName (event){
+        setName(event.target.value);
     }
 
-    function handlePassword(event){
-        setPassword(event.target.value)
+    function handlePassword (event){
+        setPassword(event.target.value);
     }
 
   return (
@@ -60,5 +61,9 @@ export default function LogIn({loginCheck}) {
                 <button className='btn btn-success m-3' onClick={handleSubmit}>SUBMIT</button>
             </div>
     </div>
-  )
+  );
 }
+
+LogIn.propTypes = {
+    loginCheck:PropTypes.func,
+};

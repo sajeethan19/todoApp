@@ -1,10 +1,11 @@
-import { useState } from "react";
-import {Link} from 'react-router-dom'
+// import { useState } from "react";
+import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
-function Navbar(props){         //props => {loginCheck:functionInParent_App , isLoggedIn:Boolean}
+function Navbar (props){         //props => {loginCheck:functionInParent_App , isLoggedIn:Boolean}
     
-    function logOut(){
-        if (props.isLoggedIn === true){props.loginCheck()} //if it's already logged in it will log out
+    function logOut (){
+        if (props.isLoggedIn === true){props.loginCheck();} //if it's already logged in it will log out
         
     }
 
@@ -19,7 +20,7 @@ function Navbar(props){         //props => {loginCheck:functionInParent_App , is
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav col-12 text-center">
                         <Link className={`nav-link col-lg-6 ${props.isLoggedIn? "active" : "" }`} aria-current="page">ToDo</Link> {/*to property is removed because no need to route to todo without login*/}
-                        <Link to='/todoApp' className={`nav-link col-lg-6 ${props.isLoggedIn? "" : "active" }`} onClick={logOut}>{props.isLoggedIn? "Log Out": "Log In"}</Link>
+                        <Link to="/todoApp" className={`nav-link col-lg-6 ${props.isLoggedIn? "" : "active" }`} onClick={logOut}>{props.isLoggedIn? "Log Out": "Log In"}</Link>
                     </div>
                     </div>
                 </div>
@@ -29,4 +30,9 @@ function Navbar(props){         //props => {loginCheck:functionInParent_App , is
     
 }
 
-export default Navbar
+Navbar.propTypes = {
+    isLoggedIn:PropTypes.bool,
+    loginCheck:PropTypes.func,
+};
+
+export default Navbar;
